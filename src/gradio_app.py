@@ -4,7 +4,7 @@ import gradio as gr
 from chatbot_engine import chat, create_index
 from dotenv import load_dotenv
 from langchain.memory import ChatMessageHistory
-# What LangChain modules does this project use?
+
 def respond(message, chat_history):
     history = ChatMessageHistory()
     for [user_message, ai_message] in chat_history:
@@ -35,12 +35,15 @@ with gr.Blocks() as demo:
 
 if __name__ == "__main__":
     load_dotenv()
+
     app_env = os.environ.get("APP_ENV", "production")
+    # 本番環境では、誰でもアクセスできないようにするための認証情報を環境変数から取得
     if app_env == "production":
         username = os.environ["GRADIO_USERNAME"]
         password = os.environ["GRADIO_PASSWORD"]
         auth = (username, password)
     else:
         auth = None
+
     index = create_index()
     demo.launch(auth=auth)
