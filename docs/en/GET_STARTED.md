@@ -7,7 +7,6 @@ This project implements an AI chatbot that can understand and discuss Python sou
 <p align="center">
   <img src="/docs/images/image1.png" width="250" />
   <img src="/docs/images/image2.png" width="250" /> 
-  <img src="/docs/images/image3.png" width="250" />
 </p>
 
 ## Setup Instructions
